@@ -1,0 +1,34 @@
+{
+  "name": "@geekberry/request",
+  "version": "0.0.0",
+  "description": "",
+  "author": "geekberry@qq.com",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "browser": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "import": "./src/index.mjs"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "test": "node --test",
+    "prepublishOnly": "npm run build",
+    "build": "npm run build:mjs & npm run build:cjs",
+    "build:mjs": "node bin/build.mjs",
+    "build:cjs": "node bin/build.cjs"
+  },
+  "browser": {
+    "node:assert": "./src/assert.mjs"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "esbuild": "^0.17.2",
+    "koaflow": "0.8.3"
+  }
+}
